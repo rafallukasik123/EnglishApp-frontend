@@ -4,9 +4,9 @@
                  [fixedInViewport]="options.fixed" [fixedTopGap]="options.top"
                  [fixedBottomGap]="options.bottom">
       <ul>
-        <li> <a>Dodaj słowo</a></li>
-        <li> <a>Lista słów</a></li>
-        <li> <a>Nauka</a></li>
+        <li routerLink="/addPhrase"> <a >Dodaj słowo</a></li>
+        <li routerLink="/listPhrases"> <a  >Lista słów</a></li>
+        <li routerLink="/learnPhrase"> <a >Nauka</a></li>
       </ul>
       <nav>
       </nav>
@@ -15,7 +15,9 @@
     <mat-sidenav-content>
       <mat-toolbar class="top_nav"><mat-icon aria-hidden="false" aria-label="menu icon" (click)="sidenav.toggle()">menu</mat-icon></mat-toolbar>
 
+      <router-outlet></router-outlet>
     </mat-sidenav-content>
+
   </mat-sidenav-container>
 
 </ng-container>

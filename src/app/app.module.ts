@@ -10,12 +10,18 @@ import { SideNavComponent } from './core/components/side-nav/side-nav.component'
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { AddPhraseComponent } from './core/components/add-phrase/add-phrase.component';
+import { LearnPhraseComponent } from './core/components/learn-phrase/learn-phrase.component';
+import { ListPhrasesComponent } from './core/components/list-phrases/list-phrases.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    SideNavComponent
+    SideNavComponent,
+    AddPhraseComponent,
+    LearnPhraseComponent,
+    ListPhrasesComponent
   ],
   imports: [
     BrowserModule,
