@@ -7,7 +7,9 @@ import {ListPhrasesComponent} from './core/components/list-phrases/list-phrases.
 const routes: Routes = [
   { path: 'addPhrase', component: AddPhraseComponent },
   { path: 'learnPhrase', component: LearnPhraseComponent },
-  { path: 'listPhrases', component: ListPhrasesComponent }
+  { path: 'listPhrases', component: ListPhrasesComponent },
+  { path: '',   redirectTo: '/learnPhrase', pathMatch: 'full' },
+  { path: '**', component: LearnPhraseComponent }
 ];
 
 @NgModule({

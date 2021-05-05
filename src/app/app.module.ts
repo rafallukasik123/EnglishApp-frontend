@@ -13,7 +13,9 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { AddPhraseComponent } from './core/components/add-phrase/add-phrase.component';
 import { LearnPhraseComponent } from './core/components/learn-phrase/learn-phrase.component';
 import { ListPhrasesComponent } from './core/components/list-phrases/list-phrases.component';
-
+import {PhrasesService} from './core/services/phrases/phrases.service';
+import { HttpClientModule } from '@angular/common/http';
+import {MatInputModule} from '@angular/material/input';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,9 +31,12 @@ import { ListPhrasesComponent } from './core/components/list-phrases/list-phrase
     BrowserAnimationsModule,
     MatSidenavModule,
     MatIconModule,
-    MatToolbarModule
+    MatToolbarModule,
+    HttpClientModule,
+    SharedModule,
+    MatInputModule
   ],
-  providers: [],
+  providers: [PhrasesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
