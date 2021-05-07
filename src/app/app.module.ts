@@ -16,6 +16,8 @@ import { ListPhrasesComponent } from './core/components/list-phrases/list-phrase
 import {PhrasesService} from './core/services/phrases/phrases.service';
 import { HttpClientModule } from '@angular/common/http';
 import {MatInputModule} from '@angular/material/input';
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatButtonModule} from '@angular/material/button';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +36,9 @@ import {MatInputModule} from '@angular/material/input';
     MatToolbarModule,
     HttpClientModule,
     SharedModule,
-    MatInputModule
+    MatInputModule,
+    ReactiveFormsModule,
+    MatButtonModule
   ],
   providers: [PhrasesService],
   bootstrap: [AppComponent]

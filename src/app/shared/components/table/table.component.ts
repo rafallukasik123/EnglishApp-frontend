@@ -16,7 +16,10 @@ export class TableComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   @Input() data: GetAllPhrases[];
+
+
   constructor() {
+
   }
 
   ngAfterViewInit() {
@@ -26,7 +29,7 @@ export class TableComponent implements AfterViewInit {
    if (changes.hasOwnProperty('data')){
      if (this.data != undefined){
        this.dataSource = new MatTableDataSource(this.data);
-       this.dataSource.paginator = this.paginator;
+       setTimeout(() =>     this.dataSource.paginator = this.paginator);
        this.dataSource.sort = this.sort;
        this.displayTable = true;
      }

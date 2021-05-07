@@ -1,1 +1,26 @@
-<p>add-phrase works!</p>
+<form [formGroup]="phraseForm" class="form" (ngSubmit)="submitForm()">
+  <div class="questions-wrapper">
+    <mat-form-field class="question">
+      <mat-label>Engilish</mat-label>
+      <input type="text" matInput formControlName="english" >
+      <mat-error *ngIf="getControlsPhraseForm.english.errors && getControlsPhraseForm.english.errors.required">
+        Podaj Angielskie znaczenie
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="question">
+      <mat-label>Polski</mat-label>
+      <input type="text" matInput formControlName="polish" >
+      <mat-error *ngIf="getControlsPhraseForm.polish.errors && getControlsPhraseForm.polish.errors.required">
+        Podaj polskie znaczenie
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <button [class.spinner]="loading" [disabled]="loading" sub mat-raised-button color="primary">
+    Dodaj</button>
+  <mat-error class="answer" *ngIf="error != ''">
+    {{error}}
+  </mat-error>
+  <div class="answer" *ngIf="succes != ''">
+    {{succes}}
+  </div>
+</form>
