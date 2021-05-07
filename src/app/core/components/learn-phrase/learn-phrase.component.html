@@ -1,1 +1,33 @@
-<p>learn-phrase works!</p>
+<section>
+  <h4>Wybierz tryb</h4>
+  <mat-button-toggle-group [formControl]="fontStyleControl" aria-label="Font Style">
+    <mat-button-toggle value="polish">Polski - Angielski</mat-button-toggle>
+    <mat-button-toggle value="english">Angielski - Polski</mat-button-toggle>
+  </mat-button-toggle-group>
+</section>
+
+<section>
+  <div *ngIf="fontStyleControl.value == 'polish'">
+    {{phrase?.polish}}
+  </div>
+  <div *ngIf="fontStyleControl.value == 'english'">
+    {{phrase?.english}}
+  </div>
+  <div>-</div>
+  <div *ngIf="!isChecked">?</div>
+  <div *ngIf="isChecked && fontStyleControl.value != 'polish'">
+    {{phrase?.polish}}
+  </div>
+  <div *ngIf="isChecked && fontStyleControl.value != 'english'">
+    {{phrase?.english}}
+  </div>
+  <button *ngIf="!isChecked" (click)="checkPhrase()">Sprawdź</button>
+
+  <div *ngIf="isChecked">
+    <div>Czy twoja odpowiedź była poprawna?</div>
+    <div>
+      <button>Tak</button>
+      <button>Nie</button>
+    </div>
+  </div>
+</section>
