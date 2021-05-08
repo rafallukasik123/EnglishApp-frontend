@@ -21,9 +21,9 @@ export class LearnPhraseComponent implements OnInit {
   }
   getPhrase(){
     this.phrasesService.getPhrase().subscribe(res => {
+      this.isChecked = false;
       this.phrase = res.data;
       console.log(res);
-      return res;
     }, error => {
       this.error = error.error;
     });
@@ -40,4 +40,25 @@ export class LearnPhraseComponent implements OnInit {
   checkPhrase(){
     this.isChecked = true;
   }
+
+  passPhrase(id: string){
+    this.phrasesService.passPhrase(id).subscribe(res => {
+      console.log(res);
+      this.getPhrase();
+    }, error => {
+      this.error = error.error;
+    });
+  }
+
+  approvePhrase(id: string){
+    this.phrasesService.approvePhrase(id).subscribe(res => {
+      console.log(res);
+      this.passPhrase(id);
+      this.getPhrase();
+    }, error => {
+      this.error = error.error;
+    });
+  }
+
+
 }

@@ -24,4 +24,10 @@ export class PhrasesService {
   getPhrase() {
     return this.http.get<GetPhraseRoot>(`${this.phrasesApiAdress}getPhrase`);
   }
+  passPhrase(id: string) {
+    return this.http.post(`${this.phrasesApiAdress}passPhrase`, {id});
+  }
+  approvePhrase(id: string) {
+    return this.http.post(`${this.phrasesApiAdress}approvePhrase`, {id});
+  }
 }

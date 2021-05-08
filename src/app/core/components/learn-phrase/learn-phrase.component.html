@@ -1,33 +1,54 @@
-<section>
-  <h4>Wybierz tryb</h4>
-  <mat-button-toggle-group [formControl]="fontStyleControl" aria-label="Font Style">
-    <mat-button-toggle value="polish">Polski - Angielski</mat-button-toggle>
-    <mat-button-toggle value="english">Angielski - Polski</mat-button-toggle>
-  </mat-button-toggle-group>
-</section>
+<div class="learn-wrapper">
+  <section class="choose-wrapper">
+    <h4 class="title">Wybierz tryb</h4>
+    <mat-button-toggle-group class="buttons-wrapper" [formControl]="fontStyleControl" aria-label="Font Style">
+      <mat-button-toggle value="polish">Polski - Angielski</mat-button-toggle>
+      <mat-button-toggle value="english">Angielski - Polski</mat-button-toggle>
+    </mat-button-toggle-group>
+  </section>
+  <section class="resault-section">
+    <div class="resault-row">
+      <div class="question-color" *ngIf="fontStyleControl.value == 'polish'">
+        {{phrase?.polish}}
+      </div>
+      <div class="question-color" *ngIf="fontStyleControl.value == 'english'">
+        {{phrase?.english}}
+      </div>
+      <div class="divider">
+        <span >-</span>
+        </div>
+      <div class="quesion-mark-color" *ngIf="!isChecked">?</div>
+      <div class="answer-color" *ngIf="isChecked && fontStyleControl.value != 'polish'">
+        {{phrase?.polish}}
+      </div>
+      <div class="answer-color" *ngIf="isChecked && fontStyleControl.value != 'english'">
+        {{phrase?.english}}
+      </div>
 
-<section>
-  <div *ngIf="fontStyleControl.value == 'polish'">
-    {{phrase?.polish}}
-  </div>
-  <div *ngIf="fontStyleControl.value == 'english'">
-    {{phrase?.english}}
-  </div>
-  <div>-</div>
-  <div *ngIf="!isChecked">?</div>
-  <div *ngIf="isChecked && fontStyleControl.value != 'polish'">
-    {{phrase?.polish}}
-  </div>
-  <div *ngIf="isChecked && fontStyleControl.value != 'english'">
-    {{phrase?.english}}
-  </div>
-  <button *ngIf="!isChecked" (click)="checkPhrase()">Sprawdź</button>
-
-  <div *ngIf="isChecked">
-    <div>Czy twoja odpowiedź była poprawna?</div>
-    <div>
-      <button>Tak</button>
-      <button>Nie</button>
     </div>
-  </div>
-</section>
+    <div class="resault-row">
+      <div></div>
+      <button sub mat-raised-button color="primary" *ngIf="!isChecked" (click)="checkPhrase()">Sprawdź</button>
+      <div></div>
+    </div>
+
+
+
+    <div class="summary-section"  *ngIf="isChecked">
+      <div class="tittle">Czy twoja odpowiedź była poprawna?</div>
+      <div class="button-wrapper">
+        <button mat-raised-button class="green-button" (click)="approvePhrase(phrase._id)">Tak - zatwierdź słowo</button>
+        <button mat-raised-button color="primary"(click)="passPhrase(phrase._id)">Tak</button>
+        <button mat-raised-button color="warn"(click)="getPhrase()">Nie</button>
+
+      </div>
+    </div>
+  </section>
+
+</div>
+
+
+
+
+
+
