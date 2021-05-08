@@ -21,4 +21,7 @@ td, th {
 .id-item-wrapper{
   display: flex;
   align-items: flex-end;
+  mat-icon{
+    margin-right: 10px;
+  }
 }

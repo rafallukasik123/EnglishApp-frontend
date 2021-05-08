@@ -33,4 +33,7 @@ export class PhrasesService {
   removePhrase(id: string) {
     return this.http.post(`${this.phrasesApiAdress}removePhrase`, {id});
   }
+  getPhraseById(id: string) {
+    return this.http.post<GetPhraseRoot>(`${this.phrasesApiAdress}getPhraseById`, {id});
+  }
 }

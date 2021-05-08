@@ -21,6 +21,9 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { RemoveItemDialogComponent } from './core/components/remove-item-dialog/remove-item-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { OptionsDialogComponent } from './core/components/options-dialog/options-dialog.component';
+import { UpdateDialogComponent } from './core/components/update-dialog/update-dialog.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     AddPhraseComponent,
     LearnPhraseComponent,
     ListPhrasesComponent,
-    RemoveItemDialogComponent
+    RemoveItemDialogComponent,
+    OptionsDialogComponent,
+    UpdateDialogComponent
   ],
     imports: [
         BrowserModule,
@@ -45,7 +50,8 @@ import {MatDialogModule} from '@angular/material/dialog';
         ReactiveFormsModule,
         MatButtonModule,
         MatButtonToggleModule,
-        MatDialogModule
+        MatDialogModule,
+        MatCheckboxModule
     ],
   providers: [PhrasesService],
   bootstrap: [AppComponent]

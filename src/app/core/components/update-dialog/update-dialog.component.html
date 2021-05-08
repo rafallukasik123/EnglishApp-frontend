@@ -1,0 +1,21 @@
+<form [formGroup]="phraseForm">
+  <div class="questions-wrapper">
+    <mat-form-field class="question">
+      <mat-label>Engilish</mat-label>
+      <input type="text" matInput formControlName="english" >
+      <mat-error *ngIf="getControlsPhraseForm?.english.errors && getControlsPhraseForm.english.errors.required">
+        Podaj Angielskie znaczenie
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="question">
+      <mat-label>Polski</mat-label>
+      <input type="text" matInput formControlName="polish" >
+      <mat-error *ngIf="getControlsPhraseForm?.polish.errors && getControlsPhraseForm.polish.errors.required">
+        Podaj polskie znaczenie
+      </mat-error>
+    </mat-form-field>
+  
+  </div>
+  <button mat-button [mat-dialog-close]="getValuesFromForm()">Edytuj</button>
+
+</form>

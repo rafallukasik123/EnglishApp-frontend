@@ -7,6 +7,8 @@ import {GetAllPhrases} from '../../../core/models/responsePhraseInferences/get-a
 import {RemoveItemDialogComponent} from '../../../core/components/remove-item-dialog/remove-item-dialog.component';
 import {MatDialog} from '@angular/material/dialog';
 import { EventEmitter } from '@angular/core';
+import {OptionsDialogComponent} from '../../../core/components/options-dialog/options-dialog.component';
+import {UpdateDialogComponent} from '../../../core/components/update-dialog/update-dialog.component';
 
 @Component({
   selector: 'app-table',
@@ -53,7 +55,33 @@ export class TableComponent implements AfterViewInit {
     this.removePhrase.emit(id);
   }
 
+  updateItem(id){
+    const dialogRef = this.dialog.open(UpdateDialogComponent, {
+      data : {
+        "id" : id
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+    });
+
+  }
+
   openDialog(id: string) {
+    const dialogRef = this.dialog.open(OptionsDialogComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      switch (result){
+        case 'update' :
+          this.updateItem(id);
+          break;
+        case 'remove' :
+          this.openRemoveDialog(id);
+          break;
+      }
+    });
+  }
+
+  openRemoveDialog(id: string){
     const dialogRef = this.dialog.open(RemoveItemDialogComponent);
     dialogRef.afterClosed().subscribe(result => {
       if (result){
