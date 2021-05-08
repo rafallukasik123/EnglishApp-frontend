@@ -6,6 +6,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatIconModule} from '@angular/material/icon';
 @NgModule({
   declarations: [
     TableComponent
@@ -15,15 +16,16 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatFormFieldModule,
     MatInputModule
   ],
-  imports: [
-    CommonModule,
-    MatPaginatorModule,
-    MatTableModule,
-    MatFormFieldModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatProgressSpinnerModule
-  ]
+    imports: [
+        CommonModule,
+        MatPaginatorModule,
+        MatTableModule,
+        MatFormFieldModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatProgressSpinnerModule,
+        MatIconModule
+    ]
 })
 export class SharedModule { }
 

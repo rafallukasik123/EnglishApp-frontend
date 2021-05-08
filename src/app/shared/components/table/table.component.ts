@@ -1,9 +1,13 @@
-import {AfterViewInit, Component, Input, OnInit, SimpleChanges, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, Input, OnInit, Output, SimpleChanges, ViewChild} from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {GetAllPhrasesRoot} from '../../../core/models/responsePhraseInferences/get-all-phrases-root';
 import {GetAllPhrases} from '../../../core/models/responsePhraseInferences/get-all-phrases';
+import {RemoveItemDialogComponent} from '../../../core/components/remove-item-dialog/remove-item-dialog.component';
+import {MatDialog} from '@angular/material/dialog';
+import { EventEmitter } from '@angular/core';
+
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
@@ -16,9 +20,9 @@ export class TableComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   @Input() data: GetAllPhrases[];
+  @Output() removePhrase = new EventEmitter<string>();
 
-
-  constructor() {
+  constructor(public dialog: MatDialog) {
 
   }
 
@@ -43,6 +47,19 @@ export class TableComponent implements AfterViewInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  removeItem(id: string){
+    this.removePhrase.emit(id);
+  }
+
+  openDialog(id: string) {
+    const dialogRef = this.dialog.open(RemoveItemDialogComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      if (result){
+        this.removeItem(id);
+      }
+    });
   }
 
 }

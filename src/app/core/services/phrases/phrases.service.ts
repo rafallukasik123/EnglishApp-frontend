@@ -30,4 +30,7 @@ export class PhrasesService {
   approvePhrase(id: string) {
     return this.http.post(`${this.phrasesApiAdress}approvePhrase`, {id});
   }
+  removePhrase(id: string) {
+    return this.http.post(`${this.phrasesApiAdress}removePhrase`, {id});
+  }
 }

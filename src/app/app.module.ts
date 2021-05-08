@@ -19,6 +19,8 @@ import {MatInputModule} from '@angular/material/input';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { RemoveItemDialogComponent } from './core/components/remove-item-dialog/remove-item-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -27,22 +29,24 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     SideNavComponent,
     AddPhraseComponent,
     LearnPhraseComponent,
-    ListPhrasesComponent
+    ListPhrasesComponent,
+    RemoveItemDialogComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatToolbarModule,
-    HttpClientModule,
-    SharedModule,
-    MatInputModule,
-    ReactiveFormsModule,
-    MatButtonModule,
-    MatButtonToggleModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatSidenavModule,
+        MatIconModule,
+        MatToolbarModule,
+        HttpClientModule,
+        SharedModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        MatButtonModule,
+        MatButtonToggleModule,
+        MatDialogModule
+    ],
   providers: [PhrasesService],
   bootstrap: [AppComponent]
 })

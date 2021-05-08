@@ -10,7 +10,13 @@
       <!-- ID Column -->
       <ng-container matColumnDef="_id">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-        <td mat-cell *matCellDef="let row"> {{row._id}} </td>
+        <td  mat-cell *matCellDef="let row">
+          <div class="id-item-wrapper">
+            <mat-icon aria-hidden="false" aria-label="delete_outline icon" (click)="openDialog(row._id)">delete_outline</mat-icon>
+            {{row._id}}
+          </div>
+
+        </td>
       </ng-container>
 
       <!-- Progress Column -->

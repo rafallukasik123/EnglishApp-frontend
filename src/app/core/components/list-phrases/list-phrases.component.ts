@@ -24,4 +24,12 @@ export class ListPhrasesComponent implements OnInit {
     });
   }
 
+  removeItem(id: string){
+    this.phrasesService.removePhrase(id).subscribe(res => {
+      this.getAllPhrases();
+    }, error => {
+      console.log(error);
+    });
+  }
+
 }
